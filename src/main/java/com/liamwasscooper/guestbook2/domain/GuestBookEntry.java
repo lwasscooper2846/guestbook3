@@ -1,8 +1,21 @@
 package com.liamwasscooper.guestbook2.domain;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
+import javax.validation.constraints.NotEmpty;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class GuestBookEntry {
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name = "entry_id")
+    private Integer id;
 
+    @NotEmpty
+    private String user;
+
+    @NotEmpty
+    private String comment;
 }
